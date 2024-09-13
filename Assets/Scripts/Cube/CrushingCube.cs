@@ -48,8 +48,9 @@ public class CrushingCube : MonoBehaviour
                 cube.GetComponent<MeshRenderer>().enabled = true;
                 cube.GetComponent<CrushingCube>().ProbabilityOfCrushing = ProbabilityOfCrushing / _denominatorProbabilityOfCrushing;
                 cube.transform.position = _cubeTransform.position;
-                Crushing?.Invoke(transform.position);
             }
+
+            Crushing?.Invoke(transform.position);
         }
 
         Destroy(gameObject);

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ExplosivePower : MonoBehaviour
 {
-    [SerializeField] private float _explosionForce = 1000f;
+    [SerializeField] private float _explosionForce = 100f;
     [SerializeField] private float _explosionRadius = 5f;
     [SerializeField] private float _upwardModifier = 1f;
 
@@ -26,6 +26,7 @@ public class ExplosivePower : MonoBehaviour
     public void BlowUp(Vector3 pointOfExplosion)
     {
         Collider[] colliders = Physics.OverlapSphere(pointOfExplosion, _explosionRadius);
+        _explosionForce = _explosionForce * transform.localScale.x;
 
         foreach (Collider hit in colliders)
         {
