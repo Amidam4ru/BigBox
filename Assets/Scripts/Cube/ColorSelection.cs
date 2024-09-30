@@ -1,5 +1,8 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Renderer))]
+
+
 public class ColorSelection : MonoBehaviour
 {
     private Renderer _renderer;

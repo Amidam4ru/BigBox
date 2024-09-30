@@ -1,9 +1,11 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(Collider))]
+
 public class CrushingCube : MonoBehaviour
 {
-    [SerializeField] private GameObject _cubePrefab;
     [SerializeField, Min(0),] private int _minAmountCrushing;
     [SerializeField] private int _maxAmountCrushing;
     [SerializeField, Min(1)] private int _denominatorOfCrushing;
@@ -37,19 +39,19 @@ public class CrushingCube : MonoBehaviour
     {
         if (ProbabilityOfCrushing >= UnityEngine.Random.Range(1, 101))
         {
-            _collider.enabled = false;
             _meshRenderer.enabled = false;
 
             for (int i = 0; i < UnityEngine.Random.Range(_minAmountCrushing, _maxAmountCrushing); i++)
             {
-                GameObject cube = Instantiate(_cubePrefab);
+                GameObject cube = Instantiate(gameObject);
                 cube.transform.localScale = _cubeTransform.localScale / _denominatorOfCrushing;
-                cube.GetComponent<Collider>().enabled = true;
                 cube.GetComponent<MeshRenderer>().enabled = true;
                 cube.GetComponent<CrushingCube>().ProbabilityOfCrushing = ProbabilityOfCrushing / _denominatorProbabilityOfCrushing;
                 cube.transform.position = _cubeTransform.position;
             }
-
+        }
+        else
+        {
             Crushing?.Invoke(transform.position);
         }
 

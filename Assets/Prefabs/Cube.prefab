@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6044287401714083121}
   - component: {fileID: 9028107308918132079}
   - component: {fileID: 7631401911499386746}
-  - component: {fileID: 2770634903658705751}
   - component: {fileID: 6511165367979981289}
   - component: {fileID: 2752798307176165761}
   - component: {fileID: -2411223748015787480}
@@ -137,18 +136,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &2770634903658705751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8587368288516985494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57424ab9acd317d4185999399d9c356d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6511165367979981289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,7 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15883ee3ff24eea4da84f67980c3ce55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cubePrefab: {fileID: 8587368288516985494}
   _minAmountCrushing: 2
   _maxAmountCrushing: 6
   _denominatorOfCrushing: 2

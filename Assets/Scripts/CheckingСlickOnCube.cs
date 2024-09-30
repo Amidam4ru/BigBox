@@ -1,27 +1,21 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(MouseClickRegistering))]
-
 public class CheckingСlickOnCube : MonoBehaviour
 {
-    public event Action<GameObject> CubeClick;
-
-    private MouseClickRegistering _mouseClickRegistering;
+    private int _idLeftMouseButtom;
 
     private void Awake()
     {
-        _mouseClickRegistering = GetComponent<MouseClickRegistering>();
+        _idLeftMouseButtom = 0;
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        _mouseClickRegistering.MouseClick += CheckCubeClick;
-    }
-
-    private void OnDisable()
-    {
-        _mouseClickRegistering.MouseClick -= CheckCubeClick;
+        if (Input.GetMouseButtonDown(_idLeftMouseButtom))
+        {
+            CheckCubeClick();
+        }
     }
 
     private void CheckCubeClick()
@@ -31,9 +25,9 @@ public class CheckingСlickOnCube : MonoBehaviour
 
         foreach (RaycastHit hit in hits)
         {
-            if (hit.transform.gameObject.GetComponent<Cube>() != null)
+            if (hit.transform.gameObject.GetComponent<CrushingCube>() != null)
             {
-                CubeClick?.Invoke(hit.transform.gameObject);
+                hit.transform.gameObject.GetComponent<CrushingCube>().Crush();
 
                 break;
             }

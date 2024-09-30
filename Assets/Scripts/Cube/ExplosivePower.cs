@@ -1,5 +1,7 @@
 using UnityEngine;
 
+[RequireComponent (typeof(CrushingCube))]
+
 public class ExplosivePower : MonoBehaviour
 {
     [SerializeField] private float _explosionForce = 100f;
